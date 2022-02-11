@@ -30,9 +30,28 @@ jobs:
           http-port: 1080
 
       - name: Test
+        continue-on-error: true
         if: ${{ true }}
         run: |
           curl -LI http://127.0.0.1:1080
+
+      - name: Localhost Test
+        continue-on-error: true
+        if: ${{ true }}
+        run: |
+          curl -LI http://localhost:1080
+
+      - name: netstat Test
+        continue-on-error: true
+        if: ${{ true }}
+        run: |
+          netstat -tulnp
+
+      - name: iptables Test
+        continue-on-error: true
+        if: ${{ true }}
+        run: |
+          iptables -L
 
       - name: Checkout repository
         uses: actions/checkout@v1
