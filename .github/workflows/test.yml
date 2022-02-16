@@ -29,6 +29,12 @@ jobs:
           smtp-port: 1025
           http-port: 1080
 
+      - name: List docker containers
+        continue-on-error: true
+        if: ${{ true }}
+        run: |
+          docker ps -a
+
       - name: Test
         continue-on-error: true
         if: ${{ true }}
