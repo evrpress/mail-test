@@ -14,8 +14,7 @@ jobs:
       matrix:
         php-version: [7.2]
         wordpress-version: [latest]
-    container:
-      image: junaidbhura/wp-tests:php-${{ matrix.php-version }}
+    container: junaidbhura/wp-tests:php-${{ matrix.php-version }}
     services:
       mysql:
         image: mysql:5.7.27
@@ -23,16 +22,13 @@ jobs:
           MYSQL_ROOT_PASSWORD: root
       sendria:
         image: msztolcman/sendria:v2.2.2.0
-        #ports:
-        #  - 1025:1025
-        #  - 1080:1080
 
     steps:
       - name: Test
         continue-on-error: false
         if: ${{ true }}
         run: |
-          curl -LI http://localhost:1080
+          curl -LI sendria:1080
 
     # - name: Checkout repository
     #   uses: actions/checkout@v1
