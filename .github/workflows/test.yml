@@ -27,25 +27,36 @@ jobs:
           - 1025:1025
           - 1080:1080
 
+    #steps:
+    #  - name: Test
+    #    continue-on-error: false
+    #    if: ${{ true }}
+    #    run: |
+    #      curl -LI 0.0.0.0:1080
+
+    # - name: Checkout repository
+    #   uses: actions/checkout@v1
+
+    #- name: Install Composer dependencies
+    #  run: |
+    #    composer install --no-dev
+    #    composer global require "phpunit/phpunit=6.1.0"
+    #    composer global require "yoast/phpunit-polyfills=1.0.3"
+
+    #- name: Install WordPress test suite
+    #  run: bash bin/install-wp-tests.sh wordpress_test root root mysql ${{ matrix.wordpress-version }}
+
+    #- name: Tests
+    #  run: $HOME/.composer/vendor/bin/phpunit --config=phpunit-integration.xml
+  tests:
+    name: Tests outside the main container
+    runs-on: ubuntu-latest
+    needs: testRunner
+    strategy:
+      fail-fast: false
     steps:
       - name: Test
-        continue-on-error: false
-        if: ${{ true }}
-        run: |
-          curl -LI sendria:1080
-          curl -LI localhost:1080
-
-      - name: Checkout repository
-        uses: actions/checkout@v1
-
-      #- name: Install Composer dependencies
-      #  run: |
-      #    composer install --no-dev
-      #    composer global require "phpunit/phpunit=6.1.0"
-      #    composer global require "yoast/phpunit-polyfills=1.0.3"
-
-      - name: Install WordPress test suite
-        run: bash bin/install-wp-tests.sh wordpress_test root root mysql ${{ matrix.wordpress-version }}
-
-      - name: Tests
-        run: $HOME/.composer/vendor/bin/phpunit --config=phpunit-integration.xml
+         continue-on-error: false
+         if: ${{ true }}
+         run: |
+           curl -LI localhost:1080
