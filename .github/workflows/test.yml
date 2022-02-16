@@ -27,12 +27,12 @@ jobs:
           - 1025:1025
           - 1080:1080
 
-    #steps:
-    #  - name: Test
-    #    continue-on-error: false
-    #    if: ${{ true }}
-    #    run: |
-    #      curl -LI 0.0.0.0:1080
+    steps:
+      - name: Test
+        continue-on-error: false
+        if: ${{ true }}
+        run: |
+          echo "Containers ready!"
 
     # - name: Checkout repository
     #   uses: actions/checkout@v1
