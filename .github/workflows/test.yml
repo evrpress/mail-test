@@ -56,7 +56,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Test
-         continue-on-error: false
-         if: ${{ true }}
-         run: |
-           curl -LI localhost:1080
+        continue-on-error: false
+        if: ${{ true }}
+        run: |
+          curl -LI localhost:1080
