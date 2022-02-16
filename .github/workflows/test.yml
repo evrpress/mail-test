@@ -22,7 +22,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: root
       sendria:
-        image: msztolcman/sendria:latest
+        image: msztolcman/sendria
         ports:
           - 1025:1025
           - 1080:1080
