@@ -21,43 +21,18 @@ jobs:
         image: mysql:5.7.27
         env:
           MYSQL_ROOT_PASSWORD: root
+      sendria:
+        image: junaidbhura/sendria:latest
+        ports:
+          - 1025:1025
+          - 1080:1080
 
     steps:
-      - name: Start Sendira
-        uses: upgundecha/start-sendria-github-action@v1.0.0
-        with:
-          smtp-port: 1025
-          http-port: 1080
-
-      - name: List docker containers
-        continue-on-error: true
-        if: ${{ true }}
-        run: |
-          /usr/bin/docker ps -a
-
       - name: Test
-        continue-on-error: true
+        continue-on-error: false
         if: ${{ true }}
         run: |
-          curl -LI http://127.0.0.1:1080
-
-      - name: Localhost Test
-        continue-on-error: true
-        if: ${{ true }}
-        run: |
-          curl -LI http://localhost:1080
-
-      - name: netstat Test
-        continue-on-error: true
-        if: ${{ true }}
-        run: |
-          netstat -tulnp
-
-      - name: iptables Test
-        continue-on-error: true
-        if: ${{ true }}
-        run: |
-          iptables -L
+          curl -LI http://sendria:1080
 
       - name: Checkout repository
         uses: actions/checkout@v1
