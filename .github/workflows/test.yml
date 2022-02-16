@@ -32,8 +32,8 @@ jobs:
         continue-on-error: false
         if: ${{ true }}
         run: |
-          ping -c 1 sendria
-          curl -LI http://sendria:1080
+          curl -LI sendria:1080
+          curl -LI localhost:1080
 
       - name: Checkout repository
         uses: actions/checkout@v1
