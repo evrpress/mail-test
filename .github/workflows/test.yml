@@ -44,8 +44,7 @@ jobs:
       - name: Set script execution permission
         run: |
           chmod +x bin/install-wp-tests.sh
-          mkdir /tmp/wordpress
-          chmod -R 755 /tmp/wordpress
+          mkdir /tmp/wordpress/wp-content/uploads
 
       - name: Install WordPress test suite
         run: |
