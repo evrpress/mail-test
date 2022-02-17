@@ -4,8 +4,8 @@ name: WordPress Test
 on: [push]
 
 env:
-  WP_TESTS_DIR: /github/home/wp-tests/wordpress-tests-lib
-  WP_CORE_DIR: /github/home/wp-tests/wordpress
+  WP_TESTS_DIR: /tmp/wp-tests/wordpress-tests-lib
+  WP_CORE_DIR: /tmp/wp-tests/wordpress
 
 jobs:
   init:
