@@ -36,10 +36,7 @@ jobs:
           tools: composer, cs2pr
 
       - name: Test sendria connection
-        continue-on-error: true
-        if: ${{ true }}
-        run: |
-          curl -LI localhost:1080
+        run: curl -LI localhost:1080
 
       - name: Checkout repository
         uses: actions/checkout@v1
@@ -50,6 +47,9 @@ jobs:
       #    composer install --no-dev
       #    composer global require "phpunit/phpunit=6.1.0"
       #    composer global require "yoast/phpunit-polyfills=1.0.3"
+
+      - name: Set script execution permission
+        run: chmod +x bin/install-wp-tests.sh
 
       - name: Install WordPress test suite
         run: bash bin/install-wp-tests.sh wordpress_test root root mysql ${{ matrix.wordpress-version }}
