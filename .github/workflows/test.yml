@@ -40,11 +40,10 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v1
-
+      #mkdir -p /tmp/wordpress/wp-content/uploads
       - name: Set script execution permission
         run: |
           chmod +x bin/install-wp-tests.sh
-          mkdir -p /tmp/wordpress/wp-content/uploads
 
       - name: Install WordPress test suite
         run: |
