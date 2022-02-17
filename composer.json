@@ -1,0 +1,6 @@
+{
+    "require": {
+        "phpunit/phpunit": "6.1.0",
+        "yoast/phpunit-polyfills": "1.0.3"
+    }
+}
