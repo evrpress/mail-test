@@ -54,7 +54,7 @@ jobs:
       - name: Install WordPress test suite
         run: |
           cd bin
-          sudo ./install-wp-tests.sh wordpress_test root root localhost ${{ matrix.wordpress-version }} --ssl-mode=DISABLED
+          sudo ./install-wp-tests.sh wordpress_test root root localhost ${{ matrix.wordpress-version }}
 
       - name: Tests
         run: $HOME/.composer/vendor/bin/phpunit --config=phpunit-integration.xml
