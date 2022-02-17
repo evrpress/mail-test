@@ -166,7 +166,7 @@ install_db() {
 	fi
 
 	# create database
-	if [ $(mysql --user="$DB_USER" --password="$DB_PASS"$EXTRA --execute='show databases --ssl-mode=DISABLED;' | grep ^$DB_NAME$) ]
+	if [ $(mysql --user="$DB_USER" --password="$DB_PASS"$EXTRA --execute='show databases' | grep ^$DB_NAME$) ]
 	then
 		recreate_db y
 	else
