@@ -52,7 +52,9 @@ jobs:
         run: chmod +x bin/install-wp-tests.sh
 
       - name: Install WordPress test suite
-        run: bash bin/install-wp-tests.sh wordpress_test root root mysql ${{ matrix.wordpress-version }}
+        run:  |
+        cd bin
+        ./install-wp-tests.sh wordpress_test root root mysql ${{ matrix.wordpress-version }}
 
       - name: Tests
         run: $HOME/.composer/vendor/bin/phpunit --config=phpunit-integration.xml
