@@ -16,7 +16,7 @@ class MailTest extends WP_UnitTestCase {
 	public function test_mail() {
 		// Replace this with some actual testing code.
 
-		$to          = 'dummy@example.com';
+		/*$to          = 'dummy@example.com';
 		$subject     = 'This is a Test';
 		$message     = 'This is the body text of the text message';
 		$headers     = '';
@@ -25,7 +25,7 @@ class MailTest extends WP_UnitTestCase {
 		$success = wp_mail( $to, $subject, $message, $headers, $attachments );
 		
 		$this->assertTrue( $succes );
-
+*/
 		// this must return an array on success and a WP_Error on failure. 
 
 		$response = wp_remote_get('http://localhost:1080/api/messages/');
