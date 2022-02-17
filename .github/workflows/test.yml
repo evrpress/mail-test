@@ -41,13 +41,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
 
-      # REMOVED, the project dont have the composer.json file
-      #- name: Install Composer dependencies
-      #  run: |
-      #    composer install --no-dev
-      #    composer global require "phpunit/phpunit=6.1.0"
-      #    composer global require "yoast/phpunit-polyfills=1.0.3"
-
       - name: Set script execution permission
         run: chmod +x bin/install-wp-tests.sh
 
@@ -60,8 +53,4 @@ jobs:
         run: composer install --no-interaction
 
       - name: run tests
-        run: vendor/bin/phpunit
-
-      # REMOVED, the project dont have the .composer directory in home
-      #- name: Tests
-      #  run: $HOME/.composer/vendor/bin/phpunit --config=phpunit-integration.xml
+        run: vendor/bin/phpunit --config=phpunit.xml.dist
