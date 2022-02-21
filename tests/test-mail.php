@@ -24,7 +24,7 @@ class MailTest extends WP_UnitTestCase {
 
 		$success = wp_mail( $to, $subject, $message, $headers, $attachments );
 		
-		$this->assertTrue( $succes );
+		$this->assertTrue( $success );
 
 		// this must return an array on success and a WP_Error on failure. 
 
