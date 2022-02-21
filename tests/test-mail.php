@@ -33,4 +33,10 @@ class MailTest extends WP_UnitTestCase {
 		$this->assertIsArray($response, '$response is not an array');
 
 	}
+
+	public function test_fails() {
+
+		$this->assertTrue( false );
+
+	}
 }
