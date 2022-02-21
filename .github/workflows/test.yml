@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: [7.2]
+        php-version: [7.2, 7.3, 7.4]
         wordpress-version: [latest]
     services:
       sendria:
@@ -25,8 +25,8 @@ jobs:
       - name: Set up MySqL
         uses: shogo82148/actions-setup-mysql@v1
         with:
-          mysql-version: "5.7"
-          root-password: "root"
+          mysql-version: '5.7'
+          root-password: 'root'
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
