@@ -17,7 +17,7 @@ class MailTest extends WP_UnitTestCase {
 		// Replace this with some actual testing code.
 
 		$to          = 'dummy@example.com';
-		$subject     = 'This is a Test';
+		$subject     = 'This is a Test 2';
 		$message     = 'This is the body text of the text message';
 		$headers     = '';
 		$attachments = array();
